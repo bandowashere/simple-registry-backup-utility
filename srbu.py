@@ -17,7 +17,7 @@ import subprocess
 # define functions
 def backupHive(hive, backupFile):
     try:
-        # Use the subprocess to call reg export
+        # use the subprocess to call reg export
         command = f'reg export "{hive}" "{backupFile}" /y'
         result = subprocess.run(command, shell = True, check = True)
         print(f"Registry hive {hive} backed up successfully.")
@@ -26,10 +26,10 @@ def backupHive(hive, backupFile):
 
 def backupRegistry(backupFolder):
     try:
-        # Create backup folder
+        # create backup folder
         os.makedirs(backupFolder, exist_ok=True)
 
-        # Map hive names to strings
+        # map hive names to strings
         REGISTRYHIVES = {
             "HKEY_CURRENT_USER": r"HKEY_CURRENT_USER",
             "HKEY_LOCAL_MACHINE": r"HKEY_LOCAL_MACHINE",
@@ -38,11 +38,12 @@ def backupRegistry(backupFolder):
             "HKEY_CLASSES_ROOT": r"HKEY_CLASSES_ROOT"
         }
 
-        # Backup each hive
+        # backup each hive
         for hiveName, hivePath in REGISTRYHIVES.items():
             backupFile = os.path.join(backupFolder, f"{hiveName}.reg")
             backupHive(hivePath, backupFile)
         print()
+        
     except Exception as e:
         print(f"Error backing up registry: {e}")
 
