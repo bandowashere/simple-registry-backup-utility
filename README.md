@@ -10,7 +10,7 @@ Backup the Windows Registry with this simple script when native tools aren't ava
 
 ## Installation
 
- 1. ```git clone github.com/bandowashere/simple-registry-backup-utility```
+ 1. ```git clone https://github.com/bandowashere/simple-registry-backup-utility.git```
 
 ## Running
 
